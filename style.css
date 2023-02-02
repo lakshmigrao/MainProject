@@ -136,6 +136,9 @@ h1,h2{
     margin: 20px auto;
     width: 300px;
 }
+#clearButton{
+    margin-left: 150px;
+}
 
 #message, #winner{
     margin: 20px auto;

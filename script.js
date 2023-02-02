@@ -28,7 +28,7 @@ function playGame1(evt){
     removeFn();
     game1=true;
     game2=false;
-    document.getElementById("message").innerHTML=`<h3>You selected Player/Computer</h3>`
+    document.getElementById("message").innerHTML=`<h4>You selected Player/Computer</h4>`
     boxId.forEach((box) =>{
         box.addEventListener("click",selectBox)
       })
@@ -39,7 +39,7 @@ function playGame2(evt){
     removeFn();
     game2=true;
     game1=false;
-    document.getElementById("message").innerHTML=`<h3>You selected Player1/Player2</h3>`
+    document.getElementById("message").innerHTML=`<h4>You selected Player1/Player2</h4>`
     boxId.forEach((box) =>{
         box.addEventListener("click",selectBox)
       })
@@ -395,11 +395,12 @@ function checkGame(){
        ((arr[0]=="X") && (arr[4]=="X") && (arr[8]=="X")) || ((arr[2]=="X") && (arr[4]=="X") && (arr[6]=="X"))){
           gameWon = true;
           gameOver=true
+          document.getElementById("message").innerHTML=""
           if(game1 == true){
-              document.getElementById("message").innerHTML=`YOU WIN!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
+              document.getElementById("winnerMessage").innerHTML=`YOU WIN!!!!!<img src="PartyPopper.jpg" width=125px>`;
               
           }else if(game2 == true){
-              document.getElementById("message").innerHTML=`PLAYER1 WINs!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
+              document.getElementById("winnerMessage").innerHTML=`PLAYER1 WINs!!!!!<img src="PartyPopper.jpg" width=125px>`;
           }
       }
       else if(((arr[0]=="0") && (arr[1]=="0") && (arr[2]=="0")) || ((arr[3]=="0") && (arr[4]=="0") && (arr[5]=="0")) || ((arr[6]=="0") && (arr[7]=="0") && (arr[8]=="0"))||
@@ -407,15 +408,16 @@ function checkGame(){
       ((arr[0]=="0") && (arr[4]=="0") && (arr[8]=="0")) || ((arr[2]=="0") && (arr[4]=="0") && (arr[6]=="0"))){
           gameWon = true;
           gameOver=true
+          document.getElementById("message").innerHTML=""
           if(game1==true){
-              document.getElementById("message").innerHTML=`COMPUTER WINS!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
+              document.getElementById("winnerMessage").innerHTML=`COMPUTER WINS!!!!!<img src="PartyPopper.jpg" width=125px>`;
           }else if(game2==true){
-              document.getElementById("message").innerHTML=`PLAYER2 WINS!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
+              document.getElementById("winnerMessage").innerHTML=`PLAYER2 WINS!!!!!<img src="PartyPopper.jpg" width=125px>`;
           }
       }else if(noOfX==5){
           gameOver=true;
           gameOne=false;
-          document.getElementById("message").innerHTML=`ITS A DRAW!!!!!<img src="tryagain.jpg" width=150px>\nPress RESET for a new game. `;
+          document.getElementById("winnerMessage").innerHTML=`ITS A DRAW!!!!!<img src="tryagain.jpg" width=125px>`;
       }
       if(gameOver){
           boxId.forEach((box) =>{
@@ -427,9 +429,10 @@ function checkGame(){
           button.setAttribute("id" , "clearButton");
           button.textContent = "RESET";
           button.classList.add("gbutton")
-          document.getElementById("message").innerHTML+= button.outerHTML;
+          document.getElementById("winnerMessage").innerHTML+= button.outerHTML;
           let buttonId = document.getElementById('clearButton')
-          
+          buttonId.style.justifyContent="center"
+          buttonId.style.alignContent="center"
           buttonId.addEventListener('click',removeFn);
       }
   }
