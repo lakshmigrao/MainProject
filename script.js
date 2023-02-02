@@ -20,7 +20,12 @@ let emptyBox=[0,1,2,3,4,5,6,7,8];
 button1.addEventListener('click',playGame1)
 button2.addEventListener('click',playGame2)
 
+
+
 function playGame1(evt){
+    button1.style.backgroundColor = "pink"
+    button2.style.backgroundColor ="white"
+    removeFn();
     game1=true;
     game2=false;
     document.getElementById("message").innerHTML=`<h3>You selected Player/Computer</h3>`
@@ -29,6 +34,9 @@ function playGame1(evt){
       })
 }
 function playGame2(evt){
+    button2.style.backgroundColor = "pink"
+    button1.style.backgroundColor ="white"
+    removeFn();
     game2=true;
     game1=false;
     document.getElementById("message").innerHTML=`<h3>You selected Player1/Player2</h3>`
@@ -413,7 +421,8 @@ function checkGame(){
           boxId.forEach((box) =>{
               box.removeEventListener('click',selectBox)
           })
-  
+          button1.style.backgroundColor ="white"
+          button2.style.backgroundColor ="white"
           button = document.createElement('button');
           button.setAttribute("id" , "clearButton");
           button.textContent = "RESET";
