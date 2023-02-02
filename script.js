@@ -53,12 +53,14 @@ function selectBox(evt){
             arr[arrayIndex] ="X";
             player1=false;
             player2=true;
+            
         }else if(player2==true){
             document.getElementById(evt.target.title).innerHTML=`<img src="circle.jpg" width=75px>`
             arrayIndex = dict[evt.target.title]
             arr[arrayIndex] ="0";
             player2=false;
             player1=true;
+    
         }
         checkGame();
     }
@@ -82,45 +84,52 @@ function playGameComp(){
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==1){
         tempArray=[0,2,3,4,5]
         for(x=0;x<tempArray.length;x++){
             if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
                 rand = tempArray[x];
+                console.log
                 break
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==2){
         tempArray=[1,4,5]
         //rand=tempArray[x];
         for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] !== "X" && arr[tempArray[x]]!=="0"){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
                 rand = tempArray[x];
                 break;
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==3){
         tempArray=[0,1,4,6,7]
@@ -131,12 +140,14 @@ function playGameComp(){
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==4){
         tempArray=[0,1,2,3,5,6,7,8,9]
@@ -147,12 +158,14 @@ function playGameComp(){
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==5){
         tempArray=[1,2,4,7,8]
@@ -163,12 +176,14 @@ function playGameComp(){
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==6){
         tempArray=[3,4,7]
@@ -179,12 +194,14 @@ function playGameComp(){
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==7){
         tempArray=[3,4,5,6,8]
@@ -195,12 +212,14 @@ function playGameComp(){
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
         }
     }else if(arrayIndex==8){
         tempArray=[4,5,7]
@@ -211,13 +230,14 @@ function playGameComp(){
             }
         }
         if(x==tempArray.length){
-            rand=emptyBox[g];
-            while(rand==""){
-                g++
-                rand=emptyBox[g];
+            if(arr[rand]=="X" || arr[rand]=="0" ){
+                for(let p=0;p<arr.length;p++){
+                    if(arr[p]!="0" && arr[p]!="X"){
+                        rand=p
+                        break
+                    }
+                }
             }
-            g=0;
-            
         }
     }}
       if(noOfX >= 3 ){
@@ -282,17 +302,17 @@ function playGameComp(){
         }
         rand = randTemp;
         arr[rand]="0"
-        emptyBox[rand]=""
         let key;
         for(key in dict){
             if (dict[key] == (rand)){
                 break;
             }
         }
-        document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
+        if(!gameOver)
+            document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
         checkGame();
 
-    }else if(noOfX == 2 ) {//if(noOfX <= 2 )
+    }//else if(noOfX == 2 ) {//if(noOfX <= 2 )
         for(let j=0;j<arr.length;j++){
             if(arr[j]=='X')
                 tempArrayX.push(j)
@@ -312,16 +332,11 @@ function playGameComp(){
                     for(let p=0;p<arr.length;p++){
                         if(arr[p]!="0" && arr[p]!="X"){
                             rand=p
-                            console.log(arr)
-                            console.log(rand)
                             break
                         }
                     }
                 } 
-                console.log("rand ="+rand)
                 arr[rand]="0"
-                emptyBox[rand]=""
-                console.log(emptyBox+"emptyBox if resultX is true")
                 let key;
                 for(key in dict){
                     if (dict[key] == (rand)){
@@ -333,11 +348,9 @@ function playGameComp(){
                 break
             }
         }
-    }
+   // }
    
     arr[rand]="0"
-    emptyBox[rand]=""
-    console.log(emptyBox+"emptyBox when x is "+noOfX)
     for(key in dict){
         if (dict[key] == (rand)){
             break;
@@ -350,7 +363,7 @@ function playGameComp(){
 function checkGame(){
     console.log(arr)
     if(((arr[0]=="X") && (arr[1]=="X") && (arr[2]=="X")) || ((arr[3]=="X") && (arr[4]=="X") && (arr[5]=="X")) || ((arr[6]=="X") && (arr[7]=="X") && (arr[8]=="X"))||
-       ((arr[0]=="X") && (arr[3]=="X") && (arr[6]=="X")) || ((arr[1]=="X") && (arr[4]=="X") && (arr[7]=="X")) || ((arr[2]=="X") && (arr[5]=="X") && (arr[7]=="X"))||
+       ((arr[0]=="X") && (arr[3]=="X") && (arr[6]=="X")) || ((arr[1]=="X") && (arr[4]=="X") && (arr[7]=="X")) || ((arr[2]=="X") && (arr[5]=="X") && (arr[8]=="X"))||
        ((arr[0]=="X") && (arr[4]=="X") && (arr[8]=="X")) || ((arr[2]=="X") && (arr[4]=="X") && (arr[6]=="X"))){
           gameWon = true;
           gameOver=true
@@ -362,7 +375,7 @@ function checkGame(){
           }
       }
       else if(((arr[0]=="0") && (arr[1]=="0") && (arr[2]=="0")) || ((arr[3]=="0") && (arr[4]=="0") && (arr[5]=="0")) || ((arr[6]=="0") && (arr[7]=="0") && (arr[8]=="0"))||
-      ((arr[0]=="0") && (arr[3]=="0") && (arr[6]=="0")) || ((arr[1]=="0") && (arr[4]=="0") && (arr[7]=="0")) || ((arr[2]=="0") && (arr[5]=="0") && (arr[7]=="0"))||
+      ((arr[0]=="0") && (arr[3]=="0") && (arr[6]=="0")) || ((arr[1]=="0") && (arr[4]=="0") && (arr[7]=="0")) || ((arr[2]=="0") && (arr[5]=="0") && (arr[8]=="0"))||
       ((arr[0]=="0") && (arr[4]=="0") && (arr[8]=="0")) || ((arr[2]=="0") && (arr[4]=="0") && (arr[6]=="0"))){
           gameWon = true;
           gameOver=true
@@ -374,7 +387,7 @@ function checkGame(){
       }else if(noOfX==5){
           gameOver=true;
           gameOne=false;
-          document.getElementById("message").innerHTML=`ITS A TIE!!!!!<img src="tryagain.jpg" width=100px>Press Clear to start a new game. `;
+          document.getElementById("message").innerHTML=`ITS A DRAW!!!!!<img src="tryagain.jpg" width=100px>Press Clear to start a new game. `;
       }
       if(gameOver){
           boxId.forEach((box) =>{
