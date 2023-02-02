@@ -7,7 +7,7 @@ let gameOver = false
 let noOfX = 0;
 let arrayIndex;
 let dict = {"zero":0,"one":1,"two":2,"three":3,"four":4,"five":5,"six":6,"seven":7,"eight":8};
-let arr =[];
+let arr =[9,9,9,9,9,9,9,9,9];
 let winnerId = document.querySelector("#winner")
 let winnerMessageId = document.getElementById("winnerMessage")
 let boxId = document.querySelectorAll(".item");
@@ -40,8 +40,9 @@ function selectBox(evt){
     if(game1==true){
         document.getElementById(evt.target.title).innerHTML=`<img src="cross.jpg" width=75px>`
         arrayIndex = dict[evt.target.title]
+        console.log(arrayIndex+"Array Index")
         arr[arrayIndex] ="X";
-        emptyBox[arrayIndex]=""
+        //emptyBox[arrayIndex]=""
         noOfX++
         checkGame();
         if(!gameOver)
@@ -72,175 +73,187 @@ function playGameComp(){
     let randTemp;
     let tempArray=[];
     let tempArrayX=[];
-    if (resultX==false && noOfX<=2) {
+    if(noOfX==1){
+        rand = Math.floor(Math.random()*arr.length)
+        if(arr[rand]=="X"){
+            for(let p=0;p<arr.length;p++){
+                if(arr[p]!="X"){
+                    rand=p
+                    break
+                }
+            }
+        }
+    }
+    else if (noOfX==2) {
         let x=0;
         let g=0;
-    if (arrayIndex == 0){
-        tempArray=[1,3,4]        
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break
+        console.log("Inside playGameComp, Array Index"+arrayIndex)
+        if (arrayIndex == 0){
+            tempArray=[1,3,4]        
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break
+                }
             }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
                     }
                 }
             }
-        }
-    }else if(arrayIndex==1){
-        tempArray=[0,2,3,4,5]
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                console.log
-                break
+        }else if(arrayIndex == 1){
+            tempArray=[0,2,3,4,5]
+            console.log("HELLO")
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break
+                }
             }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
                     }
                 }
             }
-        }
-    }else if(arrayIndex==2){
-        tempArray=[1,4,5]
+        }else if(arrayIndex==2){
+            tempArray=[1,4,5]
         //rand=tempArray[x];
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break;
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break;
+                }
             }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
+                    }
+                }
+            }
+        }else if(arrayIndex==3){
+            tempArray=[0,1,4,6,7]
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break
+                }
+            }
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
+                    }
+                }
+            }
+        }else if(arrayIndex==4){
+            tempArray=[0,1,2,3,5,6,7,8,9]
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break
+                }
+            }
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
+                    }
+                }
+            }
+        }else if(arrayIndex==5){
+            tempArray=[1,2,4,7,8]
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break
+                }
+            }
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
+                    }
+                }
+            }
+        }else if(arrayIndex==6){
+            tempArray=[3,4,7]
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break
+                }
+            }
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
+                    }
+                }
+            }
+        }else if(arrayIndex==7){
+            tempArray=[3,4,5,6,8]
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break
+                }
+            }
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
+                    }
+                }
+            }
+        }else if(arrayIndex==8){
+            tempArray=[4,5,7]
+            for(x=0;x<tempArray.length;x++){
+                if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                    rand = tempArray[x];
+                    break;
+                }
+            }
+            if(x==tempArray.length){
+                if(arr[rand]=="X" || arr[rand]=="0" ){
+                    for(let p=0;p<arr.length;p++){
+                        if(arr[p]!="0" && arr[p]!="X"){
+                            rand=p
+                            break
+                        }
                     }
                 }
             }
         }
-    }else if(arrayIndex==3){
-        tempArray=[0,1,4,6,7]
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break
-            }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
-                    }
-                }
-            }
-        }
-    }else if(arrayIndex==4){
-        tempArray=[0,1,2,3,5,6,7,8,9]
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break
-            }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
-                    }
-                }
-            }
-        }
-    }else if(arrayIndex==5){
-        tempArray=[1,2,4,7,8]
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break
-            }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
-                    }
-                }
-            }
-        }
-    }else if(arrayIndex==6){
-        tempArray=[3,4,7]
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break
-            }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
-                    }
-                }
-            }
-        }
-    }else if(arrayIndex==7){
-        tempArray=[3,4,5,6,8]
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break
-            }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
-                    }
-                }
-            }
-        }
-    }else if(arrayIndex==8){
-        tempArray=[4,5,7]
-        for(x=0;x<tempArray.length;x++){
-            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
-                rand = tempArray[x];
-                break;
-            }
-        }
-        if(x==tempArray.length){
-            if(arr[rand]=="X" || arr[rand]=="0" ){
-                for(let p=0;p<arr.length;p++){
-                    if(arr[p]!="0" && arr[p]!="X"){
-                        rand=p
-                        break
-                    }
-                }
-            }
-        }
-    }}
-      if(noOfX >= 3 ){
+    } else if(noOfX >= 3 ){
 
         if(arr[0]=="X" && arr[1]=="X" && arr[2]!="0")
             randTemp=2
@@ -300,19 +313,21 @@ function playGameComp(){
                 }
             }
         }
-        rand = randTemp;
-        arr[rand]="0"
-        let key;
-        for(key in dict){
-            if (dict[key] == (rand)){
-                break;
-            }
-        }
-        if(!gameOver)
-            document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
-        checkGame();
+        rand=randTemp;
+    }
+       // rand = randTemp;
+        // arr[rand]="0"
+        // let key;
+        // for(key in dict){
+        //     if (dict[key] == (rand)){
+        //         break;
+        //     }
+        // }
+        // if(!gameOver)
+        //     document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
+        // checkGame();
 
-    }//else if(noOfX == 2 ) {//if(noOfX <= 2 )
+    //else if(noOfX == 2 ) {//if(noOfX <= 2 )
         for(let j=0;j<arr.length;j++){
             if(arr[j]=='X')
                 tempArrayX.push(j)
@@ -332,33 +347,38 @@ function playGameComp(){
                     for(let p=0;p<arr.length;p++){
                         if(arr[p]!="0" && arr[p]!="X"){
                             rand=p
+                            console.log(rand+"value of rand inside resultXtrue")
                             break
+                            
                         }
                     }
                 } 
-                arr[rand]="0"
-                let key;
-                for(key in dict){
-                    if (dict[key] == (rand)){
-                        break;
-                    }
-                }
-                document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
-                checkGame();
-                break
+                
             }
         }
+        console.log(rand+"rand")
+        arr[rand]="0"
+        let key;
+        for(key in dict){
+            if (dict[key] == (rand)){
+                break;
+            }
+        }
+        if(!gameWon && !gameOver)
+            document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
+        checkGame();
+        
    // }
    
-    arr[rand]="0"
-    for(key in dict){
-        if (dict[key] == (rand)){
-            break;
-        }
-    }
-   if(!gameWon && !gameOver)
-        document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
-    checkGame();
+//     arr[rand]="0"
+//     for(key in dict){
+//         if (dict[key] == (rand)){
+//             break;
+//         }
+//     }
+//    if(!gameWon && !gameOver)
+//         document.getElementById(key).innerHTML=`<img src="circle.jpg" width=75px>`;
+//     checkGame();
 }
 function checkGame(){
     console.log(arr)
@@ -368,10 +388,10 @@ function checkGame(){
           gameWon = true;
           gameOver=true
           if(game1 == true){
-              document.getElementById("message").innerHTML=`YOU WIN!!!!!<img src="PartyPopper.jpg" width=100px>Press Clear to start a new game. `;
+              document.getElementById("message").innerHTML=`YOU WIN!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
               
           }else if(game2 == true){
-              document.getElementById("message").innerHTML=`PLAYER1 WINs!!!!!<img src="PartyPopper.jpg" width=100px>Press Clear to start a new game. `;
+              document.getElementById("message").innerHTML=`PLAYER1 WINs!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
           }
       }
       else if(((arr[0]=="0") && (arr[1]=="0") && (arr[2]=="0")) || ((arr[3]=="0") && (arr[4]=="0") && (arr[5]=="0")) || ((arr[6]=="0") && (arr[7]=="0") && (arr[8]=="0"))||
@@ -380,14 +400,14 @@ function checkGame(){
           gameWon = true;
           gameOver=true
           if(game1==true){
-              document.getElementById("message").innerHTML=`COMPUTER WINS!!!!!<img src="PartyPopper.jpg" width=100px>Press Clear to start a new game. `;
+              document.getElementById("message").innerHTML=`COMPUTER WINS!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
           }else if(game2==true){
-              document.getElementById("message").innerHTML=`PLAYER2 WINS!!!!!<img src="PartyPopper.jpg" width=100px>Press Clear to start a new game. `;
+              document.getElementById("message").innerHTML=`PLAYER2 WINS!!!!!<img src="PartyPopper.jpg" width=150px>\nPress RESET for a new game. `;
           }
       }else if(noOfX==5){
           gameOver=true;
           gameOne=false;
-          document.getElementById("message").innerHTML=`ITS A DRAW!!!!!<img src="tryagain.jpg" width=100px>Press Clear to start a new game. `;
+          document.getElementById("message").innerHTML=`ITS A DRAW!!!!!<img src="tryagain.jpg" width=150px>\nPress RESET for a new game. `;
       }
       if(gameOver){
           boxId.forEach((box) =>{
@@ -396,7 +416,7 @@ function checkGame(){
   
           button = document.createElement('button');
           button.setAttribute("id" , "clearButton");
-          button.textContent = "Clear";
+          button.textContent = "RESET";
           button.classList.add("gbutton")
           document.getElementById("message").innerHTML+= button.outerHTML;
           let buttonId = document.getElementById('clearButton')
