@@ -66,7 +66,8 @@ function selectBox(evt){
         }else if(player2==true){
             document.getElementById(evt.target.title).innerHTML=`<img src="circle.jpg" width=75px>`
             arrayIndex = dict[evt.target.title]
-            arr[arrayIndex] ="0";
+            if(arr[arrayIndex]!="0" && arr[arrayIndex]!="X")
+                arr[arrayIndex] ="0";
             player2=false;
             player1=true;
     
