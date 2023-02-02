@@ -16,6 +16,7 @@ let button2 = document.getElementById("game2button")
 let arrayXWin = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 let resultX=false;
 let emptyBox=[0,1,2,3,4,5,6,7,8];//emptyBox.splice(7,1);console.log(emptyBox)
+console.log(emptyBox.sub)
 button1.addEventListener('click',playGame1)
 button2.addEventListener('click',playGame2)
 
@@ -91,6 +92,7 @@ function playGameComp(){
                 tempArrayX.push(j)
 
         }
+        console.log(tempArrayX+" line 94")
         let l;
         for(let k=0; k<arrayXWin.length;k++){
             for(l=0;l<2;l++){
@@ -136,64 +138,111 @@ function playGameComp(){
     // checkGame();
     }
     if (resultX==false) {
+        let x;
     if (arrayIndex == 0){
-        tempArray=[1,3,4]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        tempArray=[1,3,4]        
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
         }
-        
+        if(x==tempArray.length){
+            rand=emptyBox[0];
+        }
     }else if(arrayIndex==1){
         tempArray=[0,2,3,4,5]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
+        }
+        if(x==tempArray.length){
+            rand=emptyBox[0];
         }
     }else if(arrayIndex==2){
         tempArray=[1,4,5]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
+        }
+        if(x==tempArray.length){
+            rand=emptyBox[0];
         }
     }else if(arrayIndex==3){
         tempArray=[0,1,4,6,7]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
+        }
+        if(x==tempArray.length){
+            rand=emptyBox[0];
         }
     }else if(arrayIndex==4){
         tempArray=[0,1,2,3,5,6,7,8,9]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
+        }
+        if(x==tempArray.length){
+            rand=emptyBox[0];
         }
     }else if(arrayIndex==5){
         tempArray=[1,2,4,7,8]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
+        }
+        if(x==tempArray.length){
+            rand=emptyBox[0];
         }
     }else if(arrayIndex==6){
         tempArray=[3,4,7]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
+        }
+        if(x==tempArray.length){
+            console.log("line 225 :-"+emptyBox)
+            rand=emptyBox[0];
         }
     }else if(arrayIndex==7){
         tempArray=[3,4,5,6,8]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break
+            }
+        }
+        if(x==tempArray.length){
+            rand=emptyBox[0];
         }
     }else if(arrayIndex==8){
         tempArray=[4,5,7]
-        rand = Math.floor(Math.random()*tempArray.length)
-        while (arr[rand] == "X" || arr[rand]=="0"){
-            rand = Math.floor(Math.random()*tempArray.length);
+        for(x=0;x<tempArray.length;x++){
+            if(arr[tempArray[x]] != "X" && arr[tempArray[x]]!="0"){
+                rand = tempArray[x];
+                break;
+            }
+        }
+        if(x==tempArray.length){
+            rand=emptyBox[0];
+            
         }
     }
     arr[rand]="0"
-    //let key;
+    
     emptyBox.splice(rand,1)
     for(key in dict){
         if (dict[key] == (rand)){
