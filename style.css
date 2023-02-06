@@ -46,12 +46,14 @@ body {
 #winnerMessage{
     grid-column: 3/4;
     grid-row: 3/4;
-    /* margin: 20px auto;
-    width: 300px; */
-    /* display: flex;
-  justify-content: space-around; */
-
 }
+#message, #winner{
+  
+  grid-column: 1/2;
+  grid-row : 3/4;
+}
+
+
 
 #zero {
   border-radius: 15px;
@@ -161,12 +163,3 @@ h1,h2{
    font-style: italic;
   
 }
-#message, #winner{
-    /* margin: 20px auto;
-    width: 400px; */
-    grid-column: 1/2;
-    grid-row : 3/4;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
