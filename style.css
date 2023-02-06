@@ -2,13 +2,25 @@ body {
     background: purple;
     background-image: linear-gradient(to right, blue, ivory);
     /* display: relative; */
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 75px 50px 3fr;
+
 }
 
 #intro{
-    margin: 20px auto;
-    width: 300px;
+    /* margin: auto; */
+  justify-content: center;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 300px; */
 }
 .container {
+  grid-row: 3/4;
+  grid-column: 2/3;
   border-radius: 15px;
     /* border: 3px solid black; */
     width: 450px;
@@ -20,13 +32,25 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     /* background-color: black; */   
 }
+.right{
+  grid-column: 3/4;
 
+}
 .item {
     background: #F3F3F3;
 }
 #scroll{
-  /* grid-column: 1/3; */
+  grid-column: 1/5;
   grid-row: 1/2;
+}
+#winnerMessage{
+    grid-column: 3/4;
+    grid-row: 3/4;
+    /* margin: 20px auto;
+    width: 300px; */
+    /* display: flex;
+  justify-content: space-around; */
+
 }
 
 #zero {
@@ -137,18 +161,12 @@ h1,h2{
    font-style: italic;
   
 }
-#winnerMessage{
-  /* display: absolute; */
-  /* justify-content: center;
-  align-items: center; */
-    margin: 20px auto;
-    width: 300px;
-}
-#clearButton{
-    margin-left: 150px;
-}
-
 #message, #winner{
-    margin: 20px auto;
-    width: 400px;
-}
+    /* margin: 20px auto;
+    width: 400px; */
+    grid-column: 1/2;
+    grid-row : 3/4;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }

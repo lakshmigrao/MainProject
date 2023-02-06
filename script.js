@@ -60,6 +60,7 @@ function selectBox(evt){
             document.getElementById(evt.target.title).innerHTML=`<img src="cross.jpg" width=75px>`
             arrayIndex = dict[evt.target.title]
             arr[arrayIndex] ="X";
+            noOfX++;
             player1=false;
             player2=true;
             
